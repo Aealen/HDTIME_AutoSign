@@ -8,10 +8,10 @@ on:
   push:
     branches: [ main ]
   # 定时触发
-  schedule:
+#   schedule:
     # - cron: "30 0 * * *"
     # 每天七点
-    - cron: "0 23 * * *"
+#     - cron: "0 23 * * *"
 
 
 permissions:
