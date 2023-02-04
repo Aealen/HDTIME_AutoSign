@@ -8,7 +8,7 @@ def browser_initial():
     """"
     浏览器初始化
     """
-    os.chdir('D:\\MyDesktop')
+    
     option=Options()
     option.add_argument('--headless')
     option.add_argument('--disable-gpu')
@@ -20,8 +20,8 @@ def browser_initial():
 def loginWithUsername(browser):
         username= browser.find_element(By.XPATH,'/html/body/table[2]/tbody/tr/td/form[2]/table/tbody/tr[1]/td[2]/input')
         password= browser.find_element(By.XPATH,'/html/body/table[2]/tbody/tr/td/form[2]/table/tbody/tr[2]/td[2]/input')
-        username.send_keys("username")
-        password.send_keys("password")
+        username.send_keys(os.getenv("Aealen_Username"))
+        password.send_keys(os.getenv("Aealen_Password"))
         
         browser.find_element(By.XPATH,'/html/body/table[2]/tbody/tr/td/form[2]/table/tbody/tr[8]/td/input[1]').click()
 
