@@ -29,7 +29,7 @@ def loginWithCookies(browser):
     # with open('signcookies.txt', 'r', encoding='utf8') as f:
     #     listCookies = json.loads(f.read())
         
-    listCookies='here is your cookie'
+    listCookies=os.getenv("Aealen_Cookie")
     for cookie in listCookies:
         cookie_dict = {
         "domain": cookie.get('domain'),
