@@ -60,6 +60,6 @@ def doSign(browser):
     
 if __name__ == "__main__":
     browser = browser_initial()
-    # loginWithUsername(browser)
-    loginWithCookies(browser)
+    loginWithUsername(browser)
+#     loginWithCookies(browser)
     doSign(browser)
