@@ -1,0 +1,43 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+
+name: Python application
+
+on:
+  # 提交主分支触发
+  push:
+    branches: [ main ]
+  # 定时触发
+  schedule:
+    # - cron: "30 0 * * *"
+    # 每天七点
+    - cron: "0 23 * * *"
+
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.9"
+    - name: Install selenium
+      run: |
+        pip install selenium
+
+    - name: run sign
+      env:
+        Aealen_Username: ${{ secrets.Aealen_Username }}
+        Aealen_Password: ${{ secrets.Aealen_Password }}
+        Aealen_Cookie: ${{ secrets.Aealen_Cookie }}
+        
+      run: |
+        python3.9 hdtimeAutoSign.py
+      
